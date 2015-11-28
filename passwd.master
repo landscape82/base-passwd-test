@@ -1,4 +1,0 @@
-news:x:59:59:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:70:70:uucp:/var/spool/uucp:/usr/sbin/nologin
-foo:x:71:71:uucp:/var/spool/uucp:/usr/sbin/nologin
-bar:x:72:72:uucp:/var/spool/uucp:/usr/sbin/nologin
