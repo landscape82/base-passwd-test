@@ -3,6 +3,7 @@
 program=../base-passwd/update-passwd
 
 for t in test-*; do
+    echo ">>>> RUNNING: $t"
     mkdir -p testrun
     rm -rf testrun/*
     cp -f "$t"/* testrun/
