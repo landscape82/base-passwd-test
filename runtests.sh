@@ -2,6 +2,7 @@
 
 program=../base-passwd/update-passwd
 
+n=0; f=0
 for t in test-*; do
     echo ">>>> RUNNING: $t"
     mkdir -p testrun
@@ -12,8 +13,15 @@ for t in test-*; do
     diff -u testrun/passwd.expected testrun/passwd || failed=1
     diff -u testrun/group.expected testrun/group || failed=1
     diff -u testrun/shadow.expected testrun/shadow || failed=1
-    [ "$failed" != 0 ] && exit 1
+    test "$failed" != 0 && f=$(( $f + 1 ))
+    n=$(( $n + 1 ))
 done
 
-echo SUCCESS.
+if test "$f" = 0; then
+    echo "SUCCESS ($n tests)".
+    exit 0
+else
+    echo "$f of $n tests FAILED."
+    exit 1
+fi
 
